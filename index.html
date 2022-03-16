@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    infoTrabalhadores = [
+    {
+        "Nome":"José da Silva",
+        "idade":20,
+        "sexo":"M",
+        "Salario":2.500
+    },
+    {
+        "Nome":"Ana Maria",
+        "idade":33,
+        "sexo":"F",
+        "Salario":5.500
+    },
+    {
+        "Nome":"Pedro Alcântara",
+        "idade":22,
+        "sexo":"M",
+        "Salario":1.500
+    },
+    {
+        "Nome":"Maria da Silva",
+        "idade":55,
+        "sexo":"F",
+        "Salario":7.500
+    },
+    {
+        "Nome":"Antônio Carlos",
+        "idade":45,
+        "sexo":"M",
+        "Salario":1.000
+    }
+]       
+        // exercicio 1
+        tabela = ()=>{
+            infoTrabalhadores.forEach((elemento,indice)=>{
+                document.write(`<table style='border:1px solid black'>
+                                <th style='border:1px solid black'>Nome Completo</th> 
+                                <th style='border:1px solid black'>Idade</th> 
+                                <th style='border:1px solid black'>Sexo</th> 
+                                <th style='border:1px solid black'>Salário</th>
+                                <tr><td style='border:1px solid black'>${elemento.Nome}</td> 
+                                <td style='border:1px solid black'>${elemento.idade}</td> 
+                                <td style='border:1px solid black'>${elemento.sexo}</td>
+                                <td style='border:1px solid black'>${(elemento.Salario).toFixed(3)}</td></tr>`)
+        })}
+        tabela(infoTrabalhadores)
+        //exercicio 2
+        document.write(`<h3>Media salario dos trabalhadores</h3>`)
+        let total = 0;
+        infoTrabalhadores.forEach((elemento,indice)=>{
+            total += elemento.Salario;
+        })
+        const media = total/infoTrabalhadores.length;
+        document.write(`<p>A media salarial e ${media}</p>`)
+
+        //exercicio 3
+        document.write(`<h3>Nome do pessoal que ganha mais de 3k</h3>`)
+        infosalario = infoTrabalhadores.forEach((elemento,indice)=>{
+            if(elemento.Salario>3.000){
+                document.write(`<p>${elemento.Nome};</p>`)
+            }
+        })
+        document.write(infosalario)
+        // exericcio 4
+        document.write(`<h3>Trabalhadores com sexo masculino</h3>`)
+        infosexo = ()=>{
+            infoTrabalhadores.forEach((elemento,indice)=>{
+                if(elemento.sexo == "M"){
+                    document.write(`${elemento.Nome},${elemento.idade},${elemento.sexo},${elemento.Salario.toFixed(3)}`);
+                }
+            })
+        }
+        infosexo(infoTrabalhadores);
+        // exericcio 5
+        document.write(`<h3>Trabalhadores com sexo feminino</h3>`)
+        infosexo = ()=>{
+            infoTrabalhadores.forEach((elemento,indice)=>{
+                if(elemento.sexo == "F"){
+                    document.write(`${elemento.Nome},${elemento.idade},${elemento.sexo},${elemento.Salario.toFixed(3)}`);
+                }
+            })
+        }
+        infosexo(infoTrabalhadores);
+        //exercicio 6
+        document.write(`<h3>Maior salario</h3>`)
+        max = infoTrabalhadores.reduce((elemento,indice)=>{
+            return Math.max(elemento.Salario);
+        })
+        max;
+
+        //exercicio 7
+        document.write(`<h3>Menor salario</h3>`)
+        max = infoTrabalhadores.reduce((elemento,indice)=>{
+            return Math.min(elemento.Salario);
+        })
+        max;
+
+        //exercicio 8
+        document.write(`<h3>Trabalhadores com sexo masculino que recebe mais que 5k</h3>`)
+            infoTrabalhadores.forEach((elemento,indice)=>{
+                if(elemento.Salario>5.000 && elemento.sexo == "M"){
+                    document.write(`${elemento.Nome},${elemento.idade},${elemento.sexo},${elemento.Salario.toFixed(3)}`);
+                }
+                else {
+                    document.write(`Não existe ninguem do sexo masculino que recebe mais que 5k`)
+                }
+            })
+        //exercicio 9
+        nome = prompt("Escreva um nome que exista salvo no nosso banco de dados para listar as informações dessa pessoa")
+       document.write(`<h3>Informações do nome</h3>`)
+        infoTrabalhadores.forEach((elemento,indice)=>{
+            if(elemento.Nome.includes(nome)){
+               a = document.write(`${elemento.Nome},${elemento.idade},${elemento.sexo},${elemento.Salario.toFixed(3)}`)
+            }
+            else {
+                document.write("Não foi achado ninguem com esse nome");
+            }
+        })
+    </script>
+</head>
+<body>
+</body>
+
+</html>
